@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/admin.css">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../public/css/public.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../admin/">百度新闻管理后台</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">新闻管理 <span class="sr-only">(current)</span></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <form class="navbar-form navbar-left">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="新闻搜索">
+                            </div>
+                            <button type="submit" class="btn btn-default">搜索</button>
+                        </form>
+                        <li><a href="#">你好，ibfpig</a></li>
+                        <li><a href="#">登录/退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加新闻</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="newstitle">新闻标题</label>
+                                <input type="text" class="form-control" id="newstitle" placeholder="请输入新闻标题">
+                            </div>
+                            <div class="form-group">
+                                <label for="newstype">新闻类型</label>
+                                <select class="form-control" id="newstype">
+                                    <option>推荐</option>
+                                    <option>科技</option>
+                                    <option>百家</option>
+                                    <option>娱乐</option>
+                                    <option>社会</option>
+                                    <option>军事</option>
+                                    <option>体育</option>
+                                    <option>汽车</option>
+                                    <option>生活</option>
+                                    <option>其他</option>
+                                </select>
+                            </div>
+<!--                             <div class="form-group">
+                                <label for="updataImg">上传图片</label>
+                                <input type="file" id="updataImg">
+                            </div> -->
+                            <div class="form-group">
+                                <label for="newsaddress">图片地址</label>
+                                <input type="text" class="form-control" id="newsaddress" placeholder="请上传图片或直接输入图片地址">
+                            </div>
+                            <div class="form-group">
+                                <label for="newstime">新闻时间</label>
+                                <input type="date" class="form-control" id="newstime" placeholder="请输入新闻时间">
+                            </div>
+                            <div class="form-group">
+                                <label for="newssrc">新闻来源</label>
+                                <input type="text" class="form-control" id="newssrc" placeholder="请输入新闻来源">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="btnsubmit">添加新闻</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">新闻列表</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-hover" id="newsTible">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>类型</th>
+                                    <th>新闻标题</th>
+                                    <th>新闻时间</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>精选</td>
+                                    <td>测试</td>
+                                    <td>resources/img/1.jpg</td>
+                                    <td>新闻来源</td>
+                                    <td>添加时间</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-xs">编辑</button>
+                                        <button type="button" class="btn btn-danger btn-xs">删除</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 删除新闻 -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">警告</h4>
+                </div>
+                <div class="modal-body">删除无法恢复</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" id="confirmDelete" class="btn btn-primary newsDelBtn">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 修改新闻 -->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">编辑</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="u_newstitle">新闻标题</label>
+                            <input type="text" class="form-control" id="u_newstitle" placeholder="请输入新闻标题">
+                        </div>
+                        <div class="form-group">
+                            <label for="u_newstype">新闻类型</label>
+                            <select class="form-control" id="u_newstype">
+                                <option>推荐</option>
+                                <option>科技</option>
+                                <option>百家</option>
+                                <option>娱乐</option>
+                                <option>社会</option>
+                                <option>军事</option>
+                                <option>体育</option>
+                                <option>汽车</option>
+                                <option>生活</option>
+                                <option>其他</option>
+                            </select>
+                        </div>
+<!--                         <div class="form-group">
+                            <label for="u_updataImg">上传图片</label>
+                            <input type="file" id="u_updataImg">
+                        </div> -->
+                        <div class="form-group">
+                            <label for="u_newsaddress">图片地址</label>
+                            <input type="text" class="form-control" id="u_newsaddress" placeholder="请上传图片或直接输入图片地址">
+                        </div>
+                        <div class="form-group">
+                            <label for="u_newstime">新闻时间</label>
+                            <input type="date" class="form-control" id="u_newstime" placeholder="请输入新闻时间">
+                        </div>
+                        <div class="form-group">
+                            <label for="u_newssrc">新闻来源</label>
+                            <input type="text" class="form-control" id="u_newssrc" placeholder="请输入新闻来源">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" id="confirmUpdate" class="btn btn-primary newsDelBtn">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../public/js/admin.js"></script>
+</body>
+
+</html>

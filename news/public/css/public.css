@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  font-family: arial;
+  height: 100%;
+}
+body {
+  height: 100%;
+  min-width: 230px;
+}
+a {
+  text-decoration: none;
+}
+.cf::before,
+.cf::after {
+  content: "";
+  display: block;
+  clear: both;
+}

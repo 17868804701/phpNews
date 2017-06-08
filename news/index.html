@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
+    <title>百度新闻</title>
+    <link rel="stylesheet" href="public/css/normalize.css"/>
+    <link rel="stylesheet" href="resources/font/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="public/css/public.css">
+    <link rel="stylesheet" href="public/css/index.css"/>
+  </head>
+<body>
+<div class="container">
+    <header class="cf">
+            <!--<div class="left">-->
+                <!--<a href="javascript:;"><i class="icon iconfont icon-baidu"></i></a>-->
+                <!--<a href="javascript:;"><i class="icon iconfont icon-ren"></i></a>-->
+            <!--</div>-->
+            <!--<div class="right">-->
+                <!--<a href="javascript:;"><i class="icon iconfont icon-sou"></i></a>-->
+                <!--<a href="javascript:;"><i class="icon iconfont icon-line3"></i></a>-->
+            <!--</div>-->
+    </header>
+    <nav>
+        <ul class="navUl cf">
+            <li><a href="javascript:;">推荐</a></li>
+            <li><a href="javascript:;">科技</a></li>
+            <li><a href="javascript:;">百家</a></li>
+            <li><a href="javascript:;">娱乐</a></li>
+            <li><a href="javascript:;">社会</a></li>
+            <li><a href="javascript:;">军事</a></li>
+            <li><a href="javascript:;">体育</a></li>
+            <li><a href="javascript:;">汽车</a></li>
+            <li><a href="javascript:;">生活</a></li>
+            <li><a href="javascript:;">更多</a></li>
+        </ul>
+    </nav>
+    <article>
+        <!--<div class="swiper"></div>-->
+        <div class="news_main">
+            <ul class="news_lists">
+<!--                 <li class="news_list">
+                    <div class="newsImg">
+                        
+                    </div>
+                    <div class="newsContent">
+                        <h1>新闻标题</h1>
+                        <p>
+                            <span class="newsTime">2016年1月10日</span>
+                            <span class="newsSrc">技术周刊</span>
+                        </p>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+    </article>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var deviceWidth = $('body').width();
+            $("nav li").each(function(index,item){
+                if($(this).find('a').html().split('').length>2){
+                    $(this).width(deviceWidth/3);
+                }else{
+                    $(this).width(deviceWidth/6);
+                }
+            })
+        })
+    </script>
+    <script type="text/javascript" src="public/js/index.js"></script>
+</div>
+</body>
+</html>

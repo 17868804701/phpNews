@@ -1,0 +1,96 @@
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    background: #3e98f0 url("../../resources/img/bg-news-logo.png") center center no-repeat;
+    background-size: 65px auto;
+    height: 49px;
+    border-bottom: 1px solid #5dabf0;
+    a {
+        color: #fff;
+        background-size: 40px 500px;
+        margin-left: 10px;
+        width: 34px;
+        height: 4.8rem;
+        i {
+            font-size: 25px !important;
+            line-height: 4.8rem;
+        }
+    }
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+        margin-right: 10px;
+    }
+}
+
+nav {
+    ul {
+        padding: 0 20px;
+        background-color: #3e98f0;
+        li {
+            background-color: #3e98f0;
+            float: left;
+            width: 20%;
+            height: 40px;
+            border-bottom: 1px solid #5dabf0;
+            line-height: 40px;
+            font-size: .16rem;
+            list-style: none;
+            text-align: center;
+            a {
+                color: #c2daf8;
+                text-decoration: none;
+                &:hover {
+                    color: #fff;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+article {
+    .swiper {
+        width: 100%;
+        height: 200px;
+        background: #ddd;
+    }
+    .news_lists {
+        margin: 1rem 0 0;
+        padding: 0 1.3rem;
+        list-style: none;
+        h1 {
+            font-size: 1.3rem;
+        }
+        .news_list {
+            display: flex;
+            border-bottom: 1px solid #e6e6e6;
+            margin-top: 1rem;
+            .newsImg {
+                flex: 1;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .newsContent {
+                flex: 2;
+                padding: 0 0.8rem;
+                span {
+                    display: inline-block;
+                    &:nth-child(2) {
+                        margin: .8rem;
+                        border: 1px solid #FF0000;
+                        border-radius: 3px;
+                        color: #FF0000;
+                    }
+                }
+            }
+        }
+    }
+}
